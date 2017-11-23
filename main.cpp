@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
 	Lista buffer;
-	cout<<buffer.longitud()<<endl;
+	cout<< "La longitud es: "<<buffer.longitud()<<endl;
 	buffer.adicionar(1);
 	buffer.adicionar(2);
 	buffer.adicionar(3);
@@ -13,8 +13,13 @@ int main() {
 	buffer.adicionar(5);
 	buffer.adicionar(6);
 	buffer.adicionar(7);
-	buffer.eliminar(1);
-	cout<<buffer.longitud()<<endl;
+	buffer.setElemento(9,1);
+	cout<<"El numero 7 esta en la posicion: " << buffer.buscarElemento(7) << endl;
+	cout<< "La longitud es: "<<buffer.longitud()<<endl;
+	buffer.mostrarse();
+	cout << "El cuarto elemento es: " << buffer.getElemento(4) << endl;
+	cout<<"El numero 7 existe? " << buffer.existeElemento(7) << endl;
+	buffer.insertar(3,23);
 	buffer.mostrarse();
 	return 0;
 //	buffer.mostrarse();

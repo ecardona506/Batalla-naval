@@ -103,31 +103,95 @@ void Lista::eliminar(int pos){
 			tmp->siguiente = tmp->siguiente->siguiente;
 			tmp2->siguiente = NULL;
 		}
-		/*
-		else{
-			Nodo* ant = new Nodo;
-			while(counter<pos){
-				if (counter==pos-1){
-					ant = tmp;
-				}
-				tmp=tmp->siguiente;
-				counter++;
-			}
-			ant=tmp;
-			tmp=NULL;
-		}
-		*/
 	}
 }
 
+int Lista::getElemento (int x){
+	Nodo *tmp=head;
+	for (int i = 0; i < x; i++)
+	{
+		tmp=tmp->siguiente;
+	}
+	return tmp->info;
+}
 
 
-/*
-void Lista::insertar(int pos, int valor);
-int getElemento (int x);
-void setElemento (int valor, int x);
-int longitud ();
-bool vacia ();
-int buscarElemento (int valor);
-bool existeElemento (int valor);
+void Lista::setElemento (int valor, int x){
+	Nodo *tmp=head;
+	for (int i = 0; i < x; i++)
+	{
+		tmp=tmp->siguiente;
+	}
+	tmp->info=valor;
+}
+
+int Lista::buscarElemento (int valor){
+	Nodo* tmp =head;
+	for(int i=0; i< Lista::longitud();i++){
+		if(tmp->info==valor){
+			return i;
+		}
+		else{
+			tmp=tmp->siguiente;
+		}
+	}
+	return -1;
+}
+
+bool Lista::existeElemento (int valor){
+	Nodo* tmp =head;
+	for(int i=0; i< Lista::longitud();i++){
+		if(tmp->info==valor){
+			return true;
+		}
+		else{
+			tmp=tmp->siguiente;
+		}
+	}
+	return false;
+}
+
+void Lista::insertar(int pos, int valor)
+{
+	Nodo * pre =new Nodo ;
+	Nodo * cur =new Nodo ;
+	Nodo * temp = new Nodo ;
+	cur = head ;
+	for( int i =0; i < pos ;i ++) {
+		pre = cur ;
+		cur = cur -> siguiente ;
+	}
+	temp -> info = valor ;
+	pre -> siguiente = temp ;
+	temp -> siguiente = cur ;
+}
+
+	/*
+	Nodo *tmp = head;
+	Nodo *tmp2 = new Nodo;
+	if(!Lista::vacia()){
+		int counter = 0;
+		if(pos==0){
+			tmp2->info=valor;
+			tmp2->siguiente=tmp;
+			head=tmp2;
+		}
+		
+		else if(pos==Lista::longitud()-1){
+			Lista::adicionar(valor);
+		}
+
+		else{
+			while(counter<pos){
+				tmp=tmp->siguiente;
+				tmp2=tmp2->siguiente;
+				counter++;
+			}
+			tmp2->info=valor;
+			tmp2->siguiente=tmp->siguiente;
+			tmp->siguiente=tmp2;
+		}
+	}
+}
 */
+
