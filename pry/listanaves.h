@@ -3,7 +3,7 @@
 #include "Tlistasnodos.h"
 #include "coordenada.h"
 
-class ListaCoordenadas{
+class ListaNaves{
 	public:
 		typedef Lista <Nave> ListaNaves;
 };
