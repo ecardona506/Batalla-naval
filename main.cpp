@@ -19,7 +19,7 @@ int main() {
 	buffer.mostrarse();
 	cout << "El cuarto elemento es: " << buffer.getElemento(4) << endl;
 	cout<<"El numero 7 existe? " << buffer.existeElemento(7) << endl;
-	buffer.insertar(3,23);
+	buffer.insertar(4,99);
 	buffer.mostrarse();
 	return 0;
 //	buffer.mostrarse();

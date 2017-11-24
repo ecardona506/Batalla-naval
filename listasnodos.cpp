@@ -153,17 +153,29 @@ bool Lista::existeElemento (int valor){
 
 void Lista::insertar(int pos, int valor)
 {
-	Nodo * pre =new Nodo ;
-	Nodo * cur =new Nodo ;
-	Nodo * temp = new Nodo ;
-	cur = head ;
-	for( int i =0; i < pos ;i ++) {
-		pre = cur ;
-		cur = cur -> siguiente ;
+	Nodo *tmp = head;
+	Nodo *tmp2 = new Nodo;
+	if(!Lista::vacia()){
+		int counter = 0;
+		if(pos==0){
+			tmp2->info=valor;
+			tmp2->siguiente=tmp;
+			head=tmp2;
+		}
+		else{
+		Nodo * pre =new Nodo ;
+		Nodo * cur =new Nodo ;
+		Nodo * temp = new Nodo ;
+		cur = head ;
+		for( int i =0; i < pos ;i ++) {
+			pre = cur ;
+			cur = cur -> siguiente ;
+		}
+		temp -> info = valor ;
+		pre -> siguiente = temp ;
+		temp -> siguiente = cur ;
+		}
 	}
-	temp -> info = valor ;
-	pre -> siguiente = temp ;
-	temp -> siguiente = cur ;
 }
 
 	/*
